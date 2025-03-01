@@ -2,9 +2,10 @@ from masks import get_mask_card_number
 from masks import get_mask_account
 
 def mask_account_card(user_data: str) -> str:
+    """Скрываем номер карты или счёта при помощи masks"""
     user_data_list = user_data.split()
     if "Maestro" in user_data or "MasterCard" in user_data:
-        return f"{user_data_list[0]} {get_mask_card_number(user_data[1])}"
+        return f"{user_data_list[0]} {get_mask_card_number(user_data_list[1])}"
     elif "Visa" in user_data:
         visa_name_list = []
         visa_number_list = []
@@ -21,6 +22,13 @@ def mask_account_card(user_data: str) -> str:
         return "Неверный формат"
 
 
-def get_date(date: str) -> str:
-    pass
+def get_date(user_date: str) -> str:
+    """Возвращаем привычный формат даты"""
+    return f"{user_date[8:10]}.{user_date[5:7]}.{user_date[:4]}"
 
+
+# test_data = input()
+# print(mask_account_card(test_data))
+
+# test_date = input()
+# print(get_date(test_date))

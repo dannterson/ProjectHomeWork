@@ -25,6 +25,3 @@ dmypy.json
 
 # poetry
 poetry.lock
-
-# flake8
-.flake8

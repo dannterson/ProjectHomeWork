@@ -11,7 +11,7 @@ def get_mask_card_number(card_number: str) -> str:
 def get_mask_account(account_number: str) -> str:
     """Проверка длины номера счёта, маскировка счёта"""
     if len(account_number) < 4 or not account_number.isdigit():
-        raise ValueError("Номер счёта должен содержать 4 цифры")
+        raise ValueError("Номер счёта должен содержать минимум 4 цифры")
 
     hidden_account_number = f"**{account_number[-4:]}"
     return hidden_account_number
